@@ -1547,10 +1547,10 @@ THE SOFTWARE.
             escape: function () {
                 this.hide();
             },
-            tab: function () {
+            'control space': function () {
                 this.widget.find('.picker-switch .btn').click();
             },
-            'control space': function () {
+            'control shift space': function () {
                 if (this.widget.find('.timepicker').is(':visible')) {
                     this.widget.find('.btn[data-action="togglePeriod"]').click();
                 }
