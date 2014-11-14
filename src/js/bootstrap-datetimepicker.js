@@ -982,7 +982,7 @@ THE SOFTWARE.
                 picker.element.on({
                     'click': $.proxy(picker.show, this),
                     //'focus': $.proxy(picker.show, this),
-                    'change': $.proxy(change, this),
+                    'change': $.proxy(change, this)
                     //'blur': $.proxy(picker.hide, this)
                 });
             } else {
