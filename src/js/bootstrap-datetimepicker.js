@@ -863,8 +863,8 @@ THE SOFTWARE.
             keyState[e.which] = pressed;
 
             //we only want to worry about keybinds if we're open
-            if (!picker.widget.hasClass('picker-open')) { 
-                return; 
+            if (!picker.widget.hasClass('picker-open')) {
+                return;
             }
             
             var handler = null,
@@ -921,8 +921,8 @@ THE SOFTWARE.
 
         keyup = function (e) {
             keyState[e.which] = released;
-            if (!picker.widget.hasClass('picker-open')) { 
-                return; 
+            if (!picker.widget.hasClass('picker-open')) {
+                return;
             }
             e.stopPropagation();
             e.preventDefault();
