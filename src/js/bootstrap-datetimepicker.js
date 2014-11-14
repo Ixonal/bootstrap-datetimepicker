@@ -983,7 +983,7 @@ THE SOFTWARE.
                     'click': $.proxy(picker.show, this),
                     //'focus': $.proxy(picker.show, this),
                     'change': $.proxy(change, this),
-                    'blur': $.proxy(picker.hide, this)
+                    //'blur': $.proxy(picker.hide, this)
                 });
             } else {
                 picker.element.on({
@@ -997,9 +997,13 @@ THE SOFTWARE.
                 }
             }
 
-            getPickerInput().on('focus', function () {
+            getPickerInput().on('focus', function (e) {
                 if (picker.widget.is(':not(:visible)')) {
-                    picker.show();
+                    picker.show(e);
+                }
+            }).on('blur', function(e) {
+                if(picker.widget.hasClass('picker-open')) {
+                    picker.hide(e);
                 }
             });
         },
