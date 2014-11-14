@@ -866,7 +866,7 @@ THE SOFTWARE.
             if (!picker.widget.hasClass('picker-open')) {
                 return;
             }
-            
+
             var handler = null,
                 index,
                 index2,
