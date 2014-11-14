@@ -998,11 +998,11 @@ THE SOFTWARE.
             }
 
             getPickerInput().on('focus', function (e) {
-                if (picker.widget.is(':not(:visible)')) {
+                if (!picker.widget.hasClass('picker-open')) {
                     picker.show(e);
                 }
             }).on('blur', function(e) {
-                if(picker.widget.hasClass('picker-open')) {
+                if (picker.widget.hasClass('picker-open')) {
                     picker.hide(e);
                 }
             });
