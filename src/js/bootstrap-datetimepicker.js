@@ -860,11 +860,11 @@ THE SOFTWARE.
         },
 
         keydown = function (e) {
-            //if (e.keyCode === 27) { // allow escape to hide picker
-            //    picker.hide();
-            //}
             keyState[e.which] = pressed;
 
+            //we only want to worry about keybinds if we're open
+            if (!picker.widget.hasClass('picker-open')) return;
+            
             var handler = null,
                 index,
                 index2,
@@ -919,6 +919,7 @@ THE SOFTWARE.
 
         keyup = function (e) {
             keyState[e.which] = released;
+            if (!picker.widget.hasClass('picker-open')) return;
             e.stopPropagation();
             e.preventDefault();
         },
@@ -953,8 +954,8 @@ THE SOFTWARE.
             picker.widget.on('click', '.datepicker *', $.proxy(click, this)); // this handles date picker clicks
             picker.widget.on('click', '[data-action]', $.proxy(doAction, this)); // this handles time picker clicks
             picker.widget.on('mousedown', $.proxy(stopEvent, this));
-            picker.element.on('keyup', $.proxy(keyup, this));
-            picker.element.on('keydown', $.proxy(keydown, this));
+            $(document).on('keyup', $.proxy(keyup, this));
+            getPickerInput().on('keydown', $.proxy(keydown, this));
             if (picker.options.pickDate && picker.options.pickTime) {
                 picker.widget.on('click.togglePicker', '.accordion-toggle', function (e) {
                     e.stopPropagation();
